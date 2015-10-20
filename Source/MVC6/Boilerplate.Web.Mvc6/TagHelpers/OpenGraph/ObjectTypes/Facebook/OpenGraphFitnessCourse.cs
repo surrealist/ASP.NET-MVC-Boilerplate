@@ -9,7 +9,7 @@
     /// Open Graph standard but is used by Facebook.
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/fitness.course/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-fitness-course", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -26,28 +26,6 @@
         private const string PaceAttributeName = "pace";
         private const string SplitsAttributeName = "splits";
         private const string SpeedAttributeName = "speed";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphFitnessCourse" /> class.
-        /// </summary>
-        public OpenGraphFitnessCourse() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphFitnessCourse" /> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphFitnessCourse(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

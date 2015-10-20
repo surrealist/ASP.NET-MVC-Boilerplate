@@ -10,7 +10,7 @@
     /// See http://ogp.me/
     /// https://developers.facebook.com/docs/reference/opengraph/object-type/music.song/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-music-song", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName + "," + AlbumUrlsAttributeName + "," + AlbumDiscAttributeName + "," + AlbumTrackAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -26,37 +26,6 @@
         private const string MusicianUrlsAttributeName = "musician-urls";
         private const string ReleaseDateAttributeName = "release-date";
         private const string ReleaseTypeAttributeName = "release-type";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphMusicSong"/> class.
-        /// </summary>
-        public OpenGraphMusicSong() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphMusicSong"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="albumUrls">The URL's to the pages about the album the song comes from. This URL's must contain profile meta tags <see cref="OpenGraphMusicAlbum"/>.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphMusicSong(string title, OpenGraphImage mainImage, IEnumerable<string> albumUrls, string url = null)
-            : base(title, mainImage, url)
-        {
-            if (albumUrls == null)
-            {
-                throw new ArgumentNullException(nameof(albumUrls));
-            }
-
-            this.AlbumUrls = albumUrls;
-            this.AlbumDisc = 1;
-            this.AlbumTrack = 1;
-        }
 
         #endregion
 
@@ -145,6 +114,20 @@
             {
                 stringBuilder.AppendMetaPropertyContent("music:release_type", this.ReleaseType.Value.ToLowercaseString());
             }
+        }
+
+        #endregion
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Checks that this instance is valid and throws exceptions if not valid.
+        /// </summary>
+        protected override void Validate()
+        {
+            base.Validate();
+
+            if (this.AlbumUrls == null) { throw new ArgumentNullException(nameof(this.AlbumUrls)); }
         }
 
         #endregion

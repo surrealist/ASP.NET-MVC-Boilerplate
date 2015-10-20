@@ -11,7 +11,7 @@
     /// See http://ogp.me/
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/article/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-article", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -26,28 +26,6 @@
         private const string PublisherUrlAttributeName = "publisher-url";
         private const string SectionAttributeName = "section";
         private const string TagsAttributeName = "tags";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphArticle"/> class.
-        /// </summary>
-        public OpenGraphArticle() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphArticle"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphArticle(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

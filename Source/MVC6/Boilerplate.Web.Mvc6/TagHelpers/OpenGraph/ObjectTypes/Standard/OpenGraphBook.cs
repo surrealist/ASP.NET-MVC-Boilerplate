@@ -10,7 +10,7 @@
     /// Facebook uses the books.book object type instead which requires an ISBN number.
     /// See http://ogp.me/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-book", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -22,28 +22,6 @@
         private const string ISBNAttributeName = "isbn";
         private const string ReleaseDateAttributeName = "release-date";
         private const string TagsAttributeName = "tags";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphBook"/> class.
-        /// </summary>
-        public OpenGraphBook() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphBook"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphBook(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

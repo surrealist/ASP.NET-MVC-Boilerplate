@@ -3,6 +3,7 @@
     using Boilerplate.Web.Mvc;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
+    using Microsoft.AspNet.Mvc.Razor;
     using Microsoft.AspNet.Routing;
     using Microsoft.Dnx.Runtime;
     using Microsoft.Framework.Configuration;
@@ -67,13 +68,17 @@
             ConfigureOptionsServices(services, this.configuration);
             ConfigureCachingServices(services);
 
+            // $Start-RedirectToCanonicalUrl$
             // Configure MVC routing. We store the route options for use by ConfigureSearchEngineOptimizationFilters.
             RouteOptions routeOptions = null;
+            // $End-RedirectToCanonicalUrl$
             services.ConfigureRouting(
                 x =>
                 {
+                    // $Start-RedirectToCanonicalUrl$
                     routeOptions = x;
-                    ConfigureRouting(routeOptions);
+                    // $End-RedirectToCanonicalUrl$
+                    ConfigureRouting(x);
                 });
 
             // Add many MVC services to the services container.
@@ -81,10 +86,15 @@
                 mvcOptions =>
                 {
                     ConfigureCacheProfiles(mvcOptions.CacheProfiles, this.configuration);
+                    // $Start-RedirectToCanonicalUrl$
                     ConfigureSearchEngineOptimizationFilters(mvcOptions.Filters, routeOptions);
+                    // $End-RedirectToCanonicalUrl$
                     ConfigureSecurityFilters(this.hostingEnvironment, mvcOptions.Filters);
                     ConfigureContentSecurityPolicyFilters(mvcOptions.Filters);
                 });
+            // $Start-CshtmlMinification$
+            services.AddTransient<IRazorViewEngine, MinifiedRazorViewEngine>();
+            // $End-CshtmlMinification$
             ConfigureFormatters(mvcBuilder);
 
             ConfigureAntiforgeryServices(services);
@@ -103,10 +113,14 @@
             // absolute URL's and get the current request path.
             application.UseBoilerplate();
 
+            // Add the IIS platform handler to the request pipeline.
+            application.UseIISPlatformHandler();
+
             // Add static files to the request pipeline e.g. hello.html or world.css.
             application.UseStaticFiles();
 
-            ConfigureDebugging(application, this.hostingEnvironment, loggerfactory);
+            ConfigureDebugging(application, this.hostingEnvironment);
+            ConfigureLogging(application, this.hostingEnvironment, loggerfactory);
             ConfigureErrorPages(application, this.hostingEnvironment);
 
             // Add MVC to the request pipeline.

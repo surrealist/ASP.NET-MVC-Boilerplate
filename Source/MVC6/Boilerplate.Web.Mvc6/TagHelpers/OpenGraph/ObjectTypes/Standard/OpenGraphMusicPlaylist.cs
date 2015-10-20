@@ -12,7 +12,7 @@
     /// See http://ogp.me/
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/music.playlist/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-music-playlist", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName + "," + SongUrlsAttributeName + "," + SongDiscAttributeName + "," + SongTrackAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -24,34 +24,6 @@
         private const string SongDiscAttributeName = "song-disc";
         private const string SongTrackAttributeName = "song-track";
         private const string SongUrlsAttributeName = "song-urls";
-
-        #endregion
-
-        #region Constructors
-
-        public OpenGraphMusicPlaylist() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphMusicPlaylist"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="songUrls">The URL's to the pages about the songs on this playlist. This URL must contain profile meta tags <see cref="OpenGraphMusicSong"/>.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphMusicPlaylist(string title, OpenGraphImage mainImage, IEnumerable<string> songUrls, string url = null)
-            : base(title, mainImage, url)
-        {
-            if (songUrls == null)
-            {
-                throw new ArgumentNullException(nameof(songUrls));
-            }
-
-            this.SongUrls = songUrls;
-            this.SongDisc = 1;
-            this.SongTrack = 1;
-        }
 
         #endregion
 
@@ -111,6 +83,20 @@
             stringBuilder.AppendMetaPropertyContent("music:song:disc", this.SongDisc);
             stringBuilder.AppendMetaPropertyContent("music:song:track", this.SongTrack);
             stringBuilder.AppendMetaPropertyContentIfNotNull("music:creator", this.CreatorUrl);
+        }
+
+        #endregion
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Checks that this instance is valid and throws exceptions if not valid.
+        /// </summary>
+        protected override void Validate()
+        {
+            base.Validate();
+
+            if (this.SongUrls == null) { throw new ArgumentNullException(nameof(this.SongUrls)); }
         }
 
         #endregion

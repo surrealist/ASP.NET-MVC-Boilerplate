@@ -8,7 +8,7 @@
     /// image, a description, and allow you to highlight two other key details about your product.
     /// See https://dev.twitter.com/cards/types/product
     /// </summary>
-    [TargetElement("twitter-card-product", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
+    [HtmlTargetElement("twitter-card-product", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
     public class TwitterCardProduct : TwitterCard
     {
         #region Constants
@@ -21,26 +21,6 @@
         private const string Label1AttributeName = "label1";
         private const string Label2AttributeName = "label2";
         private const string TitleAttributeName = "title";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardProduct"/> class.
-        /// </summary>
-        public TwitterCardProduct() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardProduct"/> class.
-        /// </summary>
-        /// <param name="username">The Twitter username of the creator of the content on the page e.g. @RehanSaeedUK. This is an optional property.</param>
-        /// <exception cref="System.ArgumentNullException">username is <c>null</c>.</exception>
-        public TwitterCardProduct(string username) : base(username)
-        {
-        }
 
         #endregion
 

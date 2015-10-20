@@ -8,7 +8,7 @@
     /// products and restaurants. It is designed to give the reader a preview of the content before clicking 
     /// through to your website. See https://dev.twitter.com/cards/types/summary.
     /// </summary>
-    [TargetElement("twitter-card-summary", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
+    [HtmlTargetElement("twitter-card-summary", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
     public class TwitterCardSummary : TwitterCard
     {
         #region Constants
@@ -16,26 +16,6 @@
         private const string DescriptionAttributeName = "description";
         private const string ImageAttributeName = "image";
         private const string TitleAttributeName = "title";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardSummary"/> class.
-        /// </summary>
-        public TwitterCardSummary() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardSummary"/> class.
-        /// </summary>
-        /// <param name="username">The Twitter username associated with the page e.g. @RehanSaeedUK. This is a required property.</param>
-        /// <exception cref="System.ArgumentNullException">username is <c>null</c>.</exception>
-        public TwitterCardSummary(string username) : base(username)
-        {
-        }
 
         #endregion
 

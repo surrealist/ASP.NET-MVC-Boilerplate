@@ -9,7 +9,7 @@
     /// user to your website. On twitter.com and the mobile clients, the image appears below the tweet text.
     /// See https://dev.twitter.com/cards/types/summary-large-image.
     /// </summary>
-    [TargetElement("twitter-card-summary-large-image", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
+    [HtmlTargetElement("twitter-card-summary-large-image", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
     public class TwitterCardSummaryLargeImage : TwitterCard
     {
         #region Constants
@@ -18,26 +18,6 @@
         private const string DescriptionAttributeName = "description";
         private const string ImageAttributeName = "image";
         private const string TitleAttributeName = "title";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardSummaryLargeImage" /> class.
-        /// </summary>
-        public TwitterCardSummaryLargeImage() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardSummaryLargeImage" /> class.
-        /// </summary>
-        /// <param name="username">The Twitter username of the creator of the content on the page e.g. @RehanSaeedUK. This is an optional property.</param>
-        /// <exception cref="System.ArgumentNullException">username is <c>null</c>.</exception>
-        public TwitterCardSummaryLargeImage(string username) : base(username)
-        {
-        }
 
         #endregion
 

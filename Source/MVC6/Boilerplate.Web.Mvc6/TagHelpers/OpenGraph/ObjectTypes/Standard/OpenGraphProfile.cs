@@ -9,7 +9,7 @@
     /// See http://ogp.me/
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/profile/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-profile", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -21,28 +21,6 @@
         private const string GenderAttributeName = "gender";
         private const string LastNameAttributeName = "last-name";
         private const string UsernameAttributeName = "username";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphProfile"/> class.
-        /// </summary>
-        public OpenGraphProfile() : base()
-        {
-        }
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphProfile"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphProfile(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

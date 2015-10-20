@@ -7,7 +7,7 @@
     /// This object type represents a group of product items. This object type is not part of the Open Graph standard but is used by Facebook.
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/product.group/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-product-group", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -16,28 +16,6 @@
         #region Constructors
 
         private const string RetailerGroupIdAttributeName = "retailer-group-id";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphProductGroup" /> class.
-        /// </summary>
-        public OpenGraphProductGroup() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphProductGroup" /> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphProductGroup(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

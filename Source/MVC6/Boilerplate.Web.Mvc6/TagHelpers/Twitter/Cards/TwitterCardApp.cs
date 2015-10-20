@@ -9,7 +9,7 @@
     /// and the price. This Card type is currently available on the twitter.com website, as well as iOS and Android 
     /// mobile clients. It is not yet available on mobile web. See https://dev.twitter.com/cards/types/app.
     /// </summary>
-    [TargetElement("twitter-card-app", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
+    [HtmlTargetElement("twitter-card-app", Attributes = UsernameAttributeName, TagStructure = TagStructure.WithoutEndTag)]
     public class TwitterCardApp : TwitterCard
     {
         #region Constants
@@ -22,25 +22,6 @@
         private const string IPadCustomUrlSchemeAttributeName = "iphone-custom-url-scheme";
         private const string IPhoneAttributeName = "ipad";
         private const string IPhoneCustomUrlSchemeAttributeName = "iphone-custom-url-scheme"; 
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardApp"/> class.
-        /// </summary>
-        public TwitterCardApp() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwitterCardApp"/> class.
-        /// </summary>
-        /// <param name="username">The Twitter username associated with the page e.g. @RehanSaeedUK. This is a required property.</param>
-        public TwitterCardApp(string username) : base(username)
-        {
-        }
 
         #endregion
 

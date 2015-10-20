@@ -81,7 +81,7 @@
                     </li>
                     <li class="list-group-item">
                         <input name="PreRequisites-UpdateDNVM" type="checkbox"> <strong>Update Visual Studio ASP.NET 5 Tools and DNVM</strong> -
-                        Update the Visual Studio ASP.NET 5 tools and the DNVM to Beta 7. Find out more <a href="http://blogs.msdn.com/b/webdev/archive/2015/09/02/announcing-availability-of-asp-net-5-beta7.aspx">here</a>.
+                        Update the Visual Studio ASP.NET 5 tools and the DNVM to Beta 8. Find out more <a href="http://blogs.msdn.com/b/webdev/archive/2015/10/15/announcing-availability-of-asp-net-5-beta8.aspx">here</a>.
                     </li>
                     <!-- $Start-TypeScript$ -->
                     <li class="list-group-item">
@@ -381,16 +381,20 @@
             <article>
                 <h3><span aria-hidden="true" class="fa fa-search-plus"></span> Search Engine Optimisation (SEO)</h3>
                 <ul class="list-group">
+                    <!-- $Start-Sitemap$ -->
                     <li class="list-group-item">
-                        <input name="SearchEngineOptimisation-ConfigureSitemapCml" type="checkbox"> <strong>Configure Sitemap.xml</strong> -
+                        <input name="SearchEngineOptimisation-ConfigureSitemapXml" type="checkbox"> <strong>Configure Sitemap.xml</strong> -
                         Add links to the sitemap.xml file to improve search engine visibility of your site.
                         Open SitemapService.cs and edit the GetSitemapNodes method. You can decide where or how your links are generated.
                     </li>
+                    <!-- $End-Sitemap$ -->
+                    <!-- $Start-RobotsText$ -->
                     <li class="list-group-item">
                         <input name="SearchEngineOptimisation-ConfigureRobotsTxt" type="checkbox"> <strong>Configure Robots.txt</strong> -
                         Add directories or links to the robots.txt file to stop search engines indexing things like error or login pages.
                         Open RobotsService.cs and edit the directives.
                     </li>
+                    <!-- $End-RobotsText$ -->
                     <li class="list-group-item">
                         <input name="SearchEngineOptimisation-FriendlyUrls" type="checkbox"> <strong>SEO and Human Friendly URL's</strong> -
                         Use the FriendlyUrlHelper to create SEO and human friendly URL's like http://example.com/product/123/this-is-the-seo-and-human-friendly-product-title.
@@ -440,6 +444,7 @@
                 </ul>
             </article>
 
+            <!-- $Start-Search$ -->
             <article>
                 <h3><span aria-hidden="true" class="fa fa-search"></span> Search</h3>
                 <ul class="list-group">
@@ -453,7 +458,9 @@
                     </li>
                 </ul>
             </article>
+            <!-- $End-Search$ -->
 
+            <!-- $Start-Feed$ -->
             <article>
                 <h3><span aria-hidden="true" class="fa fa-rss-square"></span> RSS/Atom Feed</h3>
                 <ul class="list-group">
@@ -471,6 +478,7 @@
                     </li>
                 </ul>
             </article>
+            <!-- $End-Feed$ -->
 
             <!-- Glimpse not available -->
             <!--<article>

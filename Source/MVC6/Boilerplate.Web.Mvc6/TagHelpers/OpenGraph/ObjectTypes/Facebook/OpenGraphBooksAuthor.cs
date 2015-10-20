@@ -8,7 +8,7 @@
     /// This object represents a single author of a book. This object type is not part of the Open Graph standard but is used by Facebook.
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/books.author/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-books-author", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -20,28 +20,6 @@
         private const string GenderAttributeName = "gender";
         private const string GenreUrlsAttributeName = "gender-urls";
         private const string OfficialSiteUrlAttributeName = "official-site-url";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphBooksAuthor"/> class.
-        /// </summary>
-        public OpenGraphBooksAuthor() : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphBooksAuthor"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphBooksAuthor(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 

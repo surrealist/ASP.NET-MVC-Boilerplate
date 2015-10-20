@@ -10,7 +10,7 @@
     /// See http://ogp.me/
     /// See https://developers.facebook.com/docs/reference/opengraph/object-type/music.radio_station/
     /// </summary>
-    [TargetElement(
+    [HtmlTargetElement(
         "open-graph-music-radio-station", 
         Attributes = TitleAttributeName + "," + MainImageAttributeName, 
         TagStructure = TagStructure.WithoutEndTag)]
@@ -19,28 +19,6 @@
         #region Constants
 
         private const string CreatorUrlAttributeName = "creator-url";
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphMusicRadioStation"/> class.
-        /// </summary>
-        public OpenGraphMusicRadioStation() : base()
-        {
-        }
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenGraphMusicRadioStation"/> class.
-        /// </summary>
-        /// <param name="title">The title of the object as it should appear in the graph.</param>
-        /// <param name="mainImage">The main image which should represent your object within the graph. This is a required property.</param>
-        /// <param name="url">The canonical URL of the object, used as its ID in the graph. Leave as <c>null</c> to get the URL of the current page.</param>
-        public OpenGraphMusicRadioStation(string title, OpenGraphImage mainImage, string url = null)
-            : base(title, mainImage, url)
-        {
-        }
 
         #endregion
 
